@@ -70,5 +70,13 @@ export default function ThemeProvider({ children }) {
   const theme = createTheme(themeOptions);
   theme.components = componentsOverride(theme);
 
-
+  return (
+    <StyledEngineProvider injectFirst>
+      <MUIThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles />
+        {children}
+      </MUIThemeProvider>
+    </StyledEngineProvider>
+  );
 }
