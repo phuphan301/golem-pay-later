@@ -12,6 +12,10 @@ const links = {
 
 export const sortOptions = [
     {
+        label:'Date: All',
+        value: 'all'
+    },
+    {
         label: 'Date: Old to new',
         value: 'asc',
     },
