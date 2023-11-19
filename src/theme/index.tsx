@@ -65,18 +65,10 @@ export default function ThemeProvider({ children }) {
       // ... 22 more ...
     ] as unknown as Shadows,
   };
-  //const them = createTheme(themeOption);
+  //fix index
   //   const theme = createTheme(themeOptions);
   const theme = createTheme(themeOptions);
   theme.components = componentsOverride(theme);
 
-  return (
-    <StyledEngineProvider injectFirst>
-      <MUIThemeProvider theme={theme}>
-        <CssBaseline />
-        <GlobalStyles />
-        {children}
-      </MUIThemeProvider>
-    </StyledEngineProvider>
-  );
+
 }
