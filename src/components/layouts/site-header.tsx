@@ -33,6 +33,7 @@ const SiteHeader = () => {
                     </div>
 
                     <WalletMultiButtonDynamic className="btn-ghost flex ml-2 border-gray-100 text-lg " />
+                    <WalletMultiButtonDynamic className="btn-ghost flex ml-2 border-gray-100 text-lg " />
                 </div>
             </div>
         </>
