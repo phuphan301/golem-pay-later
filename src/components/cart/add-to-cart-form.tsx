@@ -27,6 +27,14 @@ export default function AddToCartForm({ product }: AddToCartFormProps) {
             <Button aria-label="Add to cart" onClick={handleAddToCart} disabled={isProductInCart ? true : undefined}>
                 {isProductInCart ? 'Added' : 'Add to cart'}
             </Button>
+
+            <Button aria-label="Add to cart" onClick={handleAddToCart} disabled={isProductInCart ? true : undefined}>
+                {isProductInCart ? 'Added' : 'Add to cart'}
+            </Button>
+
+            <Button aria-label="Add to cart" onClick={handleAddToCart} disabled={isProductInCart ? true : undefined}>
+                {isProductInCart ? 'Added' : 'Add to cart'}
+            </Button>
         </div>
     );
 }
