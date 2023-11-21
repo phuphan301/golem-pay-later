@@ -1,0 +1,78 @@
+// app.ts
+import Web3 from 'web3';
+  // generateQr.ts
+  import { Eth } from 'web3-eth';
+  import QrCode from 'ethereumjs-qrcode';
+
+// Địa chỉ của smart contract trên Ethereum (thay thế bằng địa chỉ thực tế của bạn)
+const contractAddress = '0x1234567890abcdef1234567890abcdef12345678';
+
+// ABI của smart contract (thay thế bằng ABI thực tế của bạn)
+const contractABI: any[] = [
+  // Định nghĩa các hàm và sự kiện của smart contract
+  // Ví dụ: { "constant": true, "inputs": [], "name": "getProductList", "outputs": [{ "name": "", "type": "string[]" }], "payable": false, "stateMutability": "view", "type": "function" }
+];
+
+// Tạo một đối tượng web3 và kết nối đến một nút Ethereum hoặc một dịch vụ như Infura
+const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY'); // Thay thế bằng Infura API key của bạn
+
+// Đối tượng contract để tương tác với smart contract
+const myContract = new web3.eth.Contract(contractABI, contractAddress);
+
+// Hàm để lấy danh sách sản phẩm từ smart contract
+async function getProductList(): Promise<string[]> {
+  try {
+    const result = await myContract.methods.getProductList().call();
+    return result;
+  } catch (error) {
+    console.error('Error fetching product list:', error);
+    return [];
+  }
+}
+
+// Sử dụng hàm để lấy danh sách sản phẩm và in ra console
+getProductList()
+  .then((productList) => {
+    console.log('Product List:', productList);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+
+
+
+// Hàm để tạo ví Ethereum mới
+async function createEthereumWallet(): Promise<{ address: string; privateKey: string }> {
+  const web3 = new Web3();
+
+  // Tạo một ví mới
+  const wallet = web3.eth.accounts.create();
+
+  return {
+    address: wallet.address,
+    privateKey: wallet.privateKey!,
+  };
+}
+
+// Hàm để tạo mã QR từ địa chỉ ví và số lượng cần thanh toán
+function generatePaymentQR(address: string, amount: number): string {
+  const paymentData = {
+    to: address,
+    value: amount,
+    chainId: 1, // Mã chuỗi (1 cho mainnet Ethereum)
+  };
+
+  const qrCode = QrCode(paymentData);
+  return qrCode.toString('base64');
+}
+
+// Sử dụng các hàm để tạo ví và sinh mã QR
+async function main() {
+  const wallet = await createEthereumWallet();
+  console.log('Ethereum Wallet:', wallet);
+
+  const paymentQR = generatePaymentQR(wallet.address, 0.1); // Thay đổi số lượng cần thanh toán theo mong muốn
+  console.log('Payment QR:', paymentQR);
+}
+
+main();
