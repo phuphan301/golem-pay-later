@@ -21,7 +21,7 @@ function get(
   req: NextApiRequest,
   res: NextApiResponse<GetData>
   ) {
-  const label = 'Golem Sol Minter';
+  const label = 'SolAndy Minter';
   const icon = 'https://avatars.githubusercontent.com/u/92437260?v=4';
 
   res.status(200).send({
@@ -77,7 +77,7 @@ async function post(
     });
 
     const base64Transaction = serializedTransaction.toString('base64');
-    const message = 'Thank you for minting with Golem Sol!';
+    const message = 'Thank you for minting with SolAndy!';
 
 
     res.status(200).send({ transaction: base64Transaction, message });
