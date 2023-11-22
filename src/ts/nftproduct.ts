@@ -35,4 +35,18 @@ interface NFTProduct {
     .catch((error) => {
       console.error('Error fetching NFT products:', error);
     });
+
+    // TypeScript code for handling checkout process in a web application
+
+class Checkout {
+  processOrder(orderId: string): void {
+      // Implement checkout logic here
+      console.log(`Processing order ${orderId}`);
+  }
+}
+
+// Example usage
+const checkout = new Checkout();
+checkout.processOrder("12345");
+
   
