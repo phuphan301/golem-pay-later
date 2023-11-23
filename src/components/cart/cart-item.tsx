@@ -22,6 +22,14 @@ export function CartItem({ item }: CartItemProps) {
                     className="absolute object-cover"
                     loading="lazy"
                 />
+                <Image
+                    src={item.product.image}
+                    alt={item.product.title}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    fill
+                    className="absolute object-cover"
+                    loading="lazy"
+                />
             </div>
             <div className="flex flex-1 flex-col gap-1 self-start text-sm">
                 <span className="line-clamp-1">{item.product.title}</span>
