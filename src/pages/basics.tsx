@@ -6,8 +6,11 @@ const Basics: NextPage = (props) => {
   return (
     <div>
       <Head>
-        <title>Golem Pay</title>
-        <meta name="description" content="Basic Functionality" />
+        <title>Solana Golem Pay</title>
+        <meta
+          name="description"
+          content="Basic Functionality"
+        />
       </Head>
       <BasicsView />
     </div>

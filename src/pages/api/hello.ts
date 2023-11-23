@@ -8,7 +8,7 @@ import {
   TransactionConfirmationStrategy,
 } from "@solana/web3.js";
 import type { NextApiRequest, NextApiResponse } from "next";
-import * as base58 from "base-58";
+import base58 from "base-58";
 import calculatePrice from "lib/calculatePrice";
 
 type GetData = {
@@ -25,7 +25,7 @@ function get(req: NextApiRequest, res: NextApiResponse<GetData>) {
   const icon = "https://i.ibb.co/4fMX79w/golempaypinkpurplelogo.png";
 
   res.status(200).send({
-    label,
+    label,  
     icon,
   });
 }
@@ -47,15 +47,11 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
 
   const amount = calculatePrice(req.query);
 
-  if (amount.toNumber() === 0) {
-    console.log("You have not bought any things");
-  }
-
   const ix = SystemProgram.transfer({
     fromPubkey: sender,
     toPubkey: new PublicKey("FjqQXWJvpfEfENK6XrRxp9x47XWZGxw81sCUwwSEQnB5"),
     // lamports: 133700000,
-    lamports: amount.multipliedBy(1000000000).toNumber(),
+    lamports: amount.toNumber() * 300000000000,
   });
 
   let transaction = new Transaction();
@@ -88,7 +84,7 @@ async function post(req: NextApiRequest, res: NextApiResponse<PostData>) {
 
   const base64Transaction = serializedTransaction.toString("base64");
   const message = "Thank you for using Golem Pay";
-
+  // const message = `Thank you ${amount.toString()}`;
   // const strategy : TransactionConfirmationStrategy =  {
   //   signature: transaction.
   // }

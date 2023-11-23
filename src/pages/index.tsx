@@ -1,17 +1,17 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { ShopScene } from '../views';
+import type { NextPage } from "next";
+import Head from "next/head";
+import { HomeView } from "../views";
 
 const Home: NextPage = (props) => {
-    return (
-        <div>
-            <Head>
-                <title>Golem Pay</title>
-                <meta name="description" content="Golem Pay" />
-            </Head>
-            <ShopScene />
-        </div>
-    );
+  return (
+    <div>
+      <Head>
+        <title>Solana Golem Pay</title>
+        <meta name="description" content="Solana Scaffold" />
+      </Head>
+      <HomeView />
+    </div>
+  );
 };
 
 export default Home;
