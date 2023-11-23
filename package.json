@@ -11,7 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.5",
+    "@heroicons/react": "^2.0.18",
     "@metaplex-foundation/mpl-bubblegum": "^0.6.2",
     "@metaplex-foundation/mpl-token-metadata": "^2.11.1",
     "@noble/ed25519": "^1.7.1",
