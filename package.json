@@ -21,7 +21,7 @@
     "@solana/wallet-adapter-react": "^0.15.32",
     "@solana/wallet-adapter-react-ui": "^0.9.31",
     "@solana/wallet-adapter-wallets": "^0.19.16",
-    "@solana/web3.js": "^1.73.0",
+    "@solana/web3.js": "^1.89.1",
     "@tailwindcss/typography": "^0.5.9",
     "base-58": "^0.0.1",
     "daisyui": "^1.24.3",
